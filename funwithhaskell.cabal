@@ -1,0 +1,94 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           funwithhaskell
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/laperlej/funwithhaskell/#readme>
+homepage:       https://github.com/laperlej/funwithhaskell#readme
+bug-reports:    https://github.com/laperlej/funwithhaskell/issues
+author:         Jonathan Laperle
+maintainer:     example@example.com
+copyright:      2023 Jonathan Laperle
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/laperlej/funwithhaskell
+
+library
+  exposed-modules:
+      Hello
+      Login
+      User
+  other-modules:
+      Paths_survey
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      HUnit ==1.6.*
+    , aeson ==2.1.*
+    , base >=4.7 && <5
+    , bcrypt >=0.0.11 && <0.1
+    , bytestring ==0.11.*
+    , servant ==0.19.*
+    , servant-server ==0.19.*
+    , text ==2.0.*
+    , unix ==2.7.*
+    , wai ==3.2.*
+    , warp ==3.3.*
+  default-language: Haskell2010
+
+executable survey-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_survey
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit ==1.6.*
+    , aeson ==2.1.*
+    , base >=4.7 && <5
+    , bcrypt >=0.0.11 && <0.1
+    , bytestring ==0.11.*
+    , servant ==0.19.*
+    , servant-server ==0.19.*
+    , survey
+    , text ==2.0.*
+    , unix ==2.7.*
+    , wai ==3.2.*
+    , warp ==3.3.*
+  default-language: Haskell2010
+
+test-suite survey-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      LoginSpec
+      Paths_survey
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit ==1.6.*
+    , aeson ==2.1.*
+    , base >=4.7 && <5
+    , bcrypt >=0.0.11 && <0.1
+    , bytestring ==0.11.*
+    , servant ==0.19.*
+    , servant-server ==0.19.*
+    , survey
+    , text ==2.0.*
+    , unix ==2.7.*
+    , wai ==3.2.*
+    , warp ==3.3.*
+  default-language: Haskell2010
