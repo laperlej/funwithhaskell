@@ -6,12 +6,12 @@ cabal-version: 1.12
 
 name:           funwithhaskell
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/laperlej/funwithhaskell/#readme>
-homepage:       https://github.com/laperlej/funwithhaskell#readme
-bug-reports:    https://github.com/laperlej/funwithhaskell/issues
-author:         Jonathan Laperle
+description:    Please see the README on GitHub at <https://github.com/githubuser/funwithhaskell#readme>
+homepage:       https://github.com/githubuser/funwithhaskell#readme
+bug-reports:    https://github.com/githubuser/funwithhaskell/issues
+author:         Author name here
 maintainer:     example@example.com
-copyright:      2023 Jonathan Laperle
+copyright:      2023 Author name here
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -21,15 +21,16 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/laperlej/funwithhaskell
+  location: https://github.com/githubuser/funwithhaskell
 
 library
   exposed-modules:
-      Hello
+      AuthController
       Login
+      Logout
       User
   other-modules:
-      Paths_survey
+      Paths_funwithhaskell
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
@@ -47,10 +48,10 @@ library
     , warp ==3.3.*
   default-language: Haskell2010
 
-executable survey-exe
+executable funwithhaskell-exe
   main-is: Main.hs
   other-modules:
-      Paths_survey
+      Paths_funwithhaskell
   hs-source-dirs:
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
@@ -60,21 +61,21 @@ executable survey-exe
     , base >=4.7 && <5
     , bcrypt >=0.0.11 && <0.1
     , bytestring ==0.11.*
+    , funwithhaskell
     , servant ==0.19.*
     , servant-server ==0.19.*
-    , survey
     , text ==2.0.*
     , unix ==2.7.*
     , wai ==3.2.*
     , warp ==3.3.*
   default-language: Haskell2010
 
-test-suite survey-test
+test-suite funwithhaskell-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
       LoginSpec
-      Paths_survey
+      Paths_funwithhaskell
   hs-source-dirs:
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
@@ -84,9 +85,9 @@ test-suite survey-test
     , base >=4.7 && <5
     , bcrypt >=0.0.11 && <0.1
     , bytestring ==0.11.*
+    , funwithhaskell
     , servant ==0.19.*
     , servant-server ==0.19.*
-    , survey
     , text ==2.0.*
     , unix ==2.7.*
     , wai ==3.2.*

@@ -1,4 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE TypeOperators     #-}
 
 module Login where
 
@@ -7,7 +9,20 @@ import           Crypto.BCrypt as BC
 import         Data.ByteString.Char8
 import           Data.Text                  (Text)
 import qualified Data.Text                  as T
-import           Servant
+import User 
+import Servant
+
+handleLogin :: Text -> Text -> Servant.Handler Text
+handleLogin username plainText = do
+    hash <- liftIO $ hash plainText
+    case hash of
+        Nothing -> throwError err500 { errBody = "Error hashing password" }
+        Just h -> do
+            valid <- Login.validatePassword plainText h
+            if valid
+                then return $ T.pack $ "Logged in " ++ (T.unpack username)
+                else throwError err401 { errBody = "Invalid username or password" }
+    
 
 type Hash = ByteString
 

@@ -1,4 +1,4 @@
-# Changelog for `survey`
+# Changelog for `funwithhaskell`
 
 All notable changes to this project will be documented in this file.
 
